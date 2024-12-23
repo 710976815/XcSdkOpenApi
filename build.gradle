@@ -1,0 +1,41 @@
+apply plugin: 'maven-publish'
+
+repositories {
+    flatDir {
+        dirs 'libs' // 包含所有 AAR 的目录
+    }
+}
+
+publishing {
+    publications {
+        library1(MavenPublication) {
+            groupId = 'xc.sdk.open.api' // 替换为你的 Group ID
+            artifactId = 'avplayer' // 第一个 AAR 文件的 Artifact ID
+            version = '1.0.0' // 替换为你的版本号
+
+            artifact(file('libs/lib_xc_avplayer-release.aar')) {
+                builtBy tasks.getByName("build") // 确保构建时包含此文件
+            }
+        }
+
+        library2(MavenPublication) {
+            groupId = 'xc.sdk.open.api' // 替换为你的 Group ID
+            artifactId = 'ipc' // 第二个 AAR 文件的 Artifact ID
+            version = '1.0.0' // 替换为你的版本号
+
+            artifact(file('libs/lib_xc_ipc-release.aar')) {
+                builtBy tasks.getByName("build")
+            }
+        }
+
+        library3(MavenPublication) {
+            groupId = 'xc.sdk.open.api' // 替换为你的 Group ID
+            artifactId = 'net2' // 第三个 AAR 文件的 Artifact ID
+            version = '1.0.0' // 替换为你的版本号
+
+            artifact(file('libs/lib-net2-release.aar')) {
+                builtBy tasks.getByName("build")
+            }
+        }
+    }
+}
