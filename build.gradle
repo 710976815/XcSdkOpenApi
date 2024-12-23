@@ -3,7 +3,9 @@ apply plugin: 'maven-publish'
 task build {
     dependsOn publish
 }
-
+task assemble {
+    dependsOn publish
+}
 
 repositories {
     flatDir {
