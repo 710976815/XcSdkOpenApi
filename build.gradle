@@ -1,5 +1,10 @@
 apply plugin: 'maven-publish'
 
+task build {
+    dependsOn publish
+}
+
+
 repositories {
     flatDir {
         dirs 'libs' // 包含所有 AAR 的目录
