@@ -45,7 +45,7 @@ publishing {
             }
         }
 
-         library3(MavenPublication) {
+         library4(MavenPublication) {
             groupId = 'xc.sdk.open.api' // 替换为你的 Group ID
             artifactId = 'XCAVPlayerTool' // 第三个 AAR 文件的 Artifact ID
             version = '1.0.0' // 替换为你的版本号
